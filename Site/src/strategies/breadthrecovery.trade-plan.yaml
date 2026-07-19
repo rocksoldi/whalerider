@@ -1,0 +1,196 @@
+#
+# Breadth Recovery State Machine
+#
+# Invests only after the market has completed a full
+# breadth recovery sequence.
+#
+# Rather than buying whenever breadth is healthy,
+# this strategy waits for the market to:
+#
+#   1. Become oversold.
+#   2. Begin recovering.
+#   3. Confirm broad participation.
+#   4. Select only stocks already in an uptrend.
+#
+# This demonstrates WhaleRider's state-machine capabilities,
+# where the order of events is just as important as the events
+# themselves.
+#
+
+NAME: BREADTH_RECOVERY
+SIDE: LONG
+
+RISK:
+
+  # ATR-based exits adapt to changing volatility.
+  ATR_INTERVAL: DAY
+  ATR_LOOKBACK: 14
+
+  STOP_LOSS_ATR: 3
+  TAKE_PROFIT_ATR: 6
+
+  # Re-evaluate positions after approximately six months.
+  HOLDING_MAX_PERIOD: 120D
+
+UNIVERSE:
+
+  # Focus on liquid, established companies.
+  MARKET_INDICES:
+    - SP500
+
+  MIN_MKT_CAP: 5000000000
+  MIN_AVG_VOLUME: 1000000
+
+INDICATORS:
+
+  #
+  # Market Breadth
+  #
+
+  # Daily closing price.
+  - NAME: PRICE
+    DOMAIN: CANDLE
+    INTERVAL: DAY
+
+  # Long-term trend used to calculate breadth.
+  - NAME: EMA200
+    DOMAIN: CANDLE
+    INTERVAL: DAY
+    STEPS:
+      - TYPE: EMA
+        LOOKBACK: 200
+
+  # Percentage of S&P 500 constituents trading
+  # above their 200-day EMA.
+  #
+  # This acts as a measure of overall market participation.
+  - NAME: ABOVE_EMA200
+    DOMAIN: DERIVED
+    MEASUREMENT: PRICE / EMA200
+    BREADTH:
+      OPERATOR: GREATER_THAN
+      VALUE: 1
+
+  #
+  # Individual Stock Trend
+  #
+
+  # Medium-term trend filter used to ensure the
+  # selected stock is participating in the recovery.
+  - NAME: SMA100
+    DOMAIN: CANDLE
+    INTERVAL: DAY
+    MEASUREMENT: Close
+    STEPS:
+      - TYPE: SMA
+        LOOKBACK: 100
+
+SIGNALS:
+
+  #
+  # Breadth States
+  #
+
+  # Marks an unhealthy market where only a small
+  # percentage of stocks remain above their long-term trend.
+  - NAME: OVERSOLD_MARKET
+    IS: ABOVE_EMA200 < 30
+
+  # Indicates that participation has started expanding.
+  - NAME: BREADTH_RECOVERY
+    IS: ABOVE_EMA200 > 45
+
+  # Confirms that the recovery has become broad-based.
+  - NAME: CONFIRMED_MARKET
+    IS: ABOVE_EMA200 > 60
+
+  # Indicates the recovery failed before confirmation.
+  - NAME: RECOVERY_FAILED
+    IS: ABOVE_EMA200 < 35
+
+  #
+  # Individual Stock
+  #
+
+  # The stock is participating in the broader market recovery.
+  - NAME: STOCK_UPTREND
+    IS: PRICE > SMA100
+
+  # Medium-term trend has been lost.
+  - NAME: STOCK_DOWNTREND
+    IS: PRICE < SMA100
+
+  #
+  # Exit Signal
+  #
+
+  # Broad market participation has deteriorated.
+  - NAME: BREADTH_BREAKDOWN
+    IS: ABOVE_EMA200 < 40
+
+CRITERIA:
+
+  #
+  # Sequential Entry State Machine
+  #
+
+  ENTER:
+
+    # ------------------------------------------------------
+    # State 1
+    #
+    # Wait until the market reaches a broadly oversold state.
+    # No positions may be opened before this occurs.
+    # ------------------------------------------------------
+
+    IF: OVERSOLD_MARKET
+
+    NEXT:
+
+      # ----------------------------------------------------
+      # State 2
+      #
+      # Wait for breadth to recover, indicating that buying
+      # pressure is returning across the market.
+      # ----------------------------------------------------
+
+      - IF: BREADTH_RECOVERY
+
+        NEXT:
+
+          # ------------------------------------------------
+          # State 3
+          #
+          # The recovery must continue.
+          #
+          # If breadth weakens again before confirmation,
+          # the sequence is abandoned and starts over.
+          # ------------------------------------------------
+
+          - IF: RECOVERY_FAILED
+            EFFECT: ABORT
+
+          - IF: CONFIRMED_MARKET
+
+            NEXT:
+
+              # --------------------------------------------
+              # State 4
+              #
+              # Market conditions are now favorable.
+              # Enter only stocks that are already in
+              # their own medium-term uptrend.
+              # --------------------------------------------
+
+              - IF: STOCK_UPTREND
+
+  #
+  # Position Exit
+  #
+
+  EXIT:
+
+    # Exit when either:
+    # - Market participation deteriorates.
+    # - The individual stock loses its trend.
+    IF: BREADTH_BREAKDOWN OR STOCK_DOWNTREND

@@ -1,0 +1,52 @@
+# EMA Crossover
+#
+# A small long-only trend strategy.
+# Enter when the fast EMA moves above the slow EMA.
+# Exit when the fast EMA moves below the slow EMA.
+
+NAME: EMA_CROSSOVER
+SIDE: LONG
+
+RISK:
+  ATR_INTERVAL: DAY
+  ATR_LOOKBACK: 14
+  STOP_LOSS_ATR: 2
+  TAKE_PROFIT_ATR: 4
+  HOLDING_MAX_PERIOD: 120D
+
+UNIVERSE:
+  MARKET_INDICES:
+    - SP500
+  MIN_MKT_CAP: 5000000000
+  MIN_AVG_VOLUME: 1000000
+
+INDICATORS:
+  - NAME: EMA20
+    DOMAIN: CANDLE
+    INTERVAL: DAY
+    MEASUREMENT: Close
+    STEPS:
+      - TYPE: EMA
+        LOOKBACK: 20
+
+  - NAME: EMA50
+    DOMAIN: CANDLE
+    INTERVAL: DAY
+    MEASUREMENT: Close
+    STEPS:
+      - TYPE: EMA
+        LOOKBACK: 50
+
+SIGNALS:
+  - NAME: TREND_UP
+    IS: EMA20 > EMA50
+
+  - NAME: TREND_DOWN
+    IS: EMA20 < EMA50
+
+CRITERIA:
+  ENTER:
+    IF: TREND_UP
+
+  EXIT:
+    IF: TREND_DOWN
