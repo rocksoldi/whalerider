@@ -236,6 +236,13 @@ img { max-width: 100%; display: block; }
 
 .editor-section { border-top: 1px solid var(--line); }
 .editor-heading { align-items: start; }
+.editor-intro > p { max-width: 430px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.75; }
+.extension-install { margin-top: 22px; padding: 17px 18px; border: 1px solid var(--line); border-radius: 9px; background: rgba(255,255,255,.018); }
+.extension-install > span { display: block; margin-bottom: 14px; color: #8faeff; font: 9px var(--font-mono); text-transform: uppercase; letter-spacing: .1em; }
+.extension-install ol { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
+.extension-install li { display: flex; align-items: center; gap: 10px; color: #c4c4ca; font-size: 12px; line-height: 1.4; }
+.extension-install li b { width: 19px; height: 19px; flex: 0 0 auto; display: grid; place-items: center; color: #8faeff; border: 1px solid rgba(120,167,255,.22); border-radius: 50%; font: 8px var(--font-mono); }
+.extension-install code { color: var(--text); font-size: 11px; }
 .demo-shell { border: 1px solid var(--line-bright); background: #091310; }
 .demo-tabs { min-height: 62px; display: flex; align-items: stretch; border-bottom: 1px solid var(--line); overflow-x: auto; }
 .demo-tabs button { min-width: 120px; padding: 0 20px; border: 0; border-right: 1px solid var(--line); color: var(--muted); background: transparent; cursor: pointer; font: 10px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .08em; }

@@ -403,7 +403,17 @@ function App() {
         <section className="editor-section section-frame" id="editor">
           <div className="section-heading editor-heading">
             <div><span className="section-index">05 / VS Code extension</span><h2>Edit WhaleRider YAML<br />in VS Code.</h2></div>
-            <p>The extension provides completion, schema validation, and diagnostics for WhaleRider files.</p>
+            <div className="editor-intro">
+              <p>The extension provides completion, schema validation, and diagnostics for WhaleRider files.</p>
+              <div className="extension-install">
+                <span>Install the extension</span>
+                <ol>
+                  <li><b>1</b><span>Open Extensions in VS Code.</span></li>
+                  <li><b>2</b><span>Search for <code>WhaleRider DSL</code>.</span></li>
+                  <li><b>3</b><span>Select WhaleRider DSL and click Install.</span></li>
+                </ol>
+              </div>
+            </div>
           </div>
           <div className="demo-shell">
             <div className="demo-tabs" role="tablist" aria-label="Editor feature demos">
