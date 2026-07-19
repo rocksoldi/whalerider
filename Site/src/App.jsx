@@ -213,20 +213,22 @@ function App() {
           <div className="hero-copy">
             <div className="eyebrow hero-brandline">
               <span className="status-dot" />
-              <span><small>WhaleRider</small>Deterministic strategy runtime</span>
+              <span><small>WhaleRider</small>Cross-domain strategy compiler</span>
             </div>
-            <h1>Compile trading<br /><em>strategies.</em></h1>
+            <h1>One language.<br /><em>Every signal.</em></h1>
             <p className="hero-lede">
-              Combine technical, fundamental, market breadth, insider, and economic data in one YAML language. Compile it into a .wr artifact, then run the same strategy in simulation or live trading.
+              Combine technical, fundamental, breadth, insider, and economic data in one YAML definition. Compile it to a .wr artifact, then run the same artifact in simulation or live trading.
             </p>
             <div className="hero-actions">
-              <a className="button button-primary" href="#install">Install CLI <span>→</span></a>
-              <a className="button button-quiet" href="#workflow">How it works</a>
+              <a className="button button-primary" href="#examples">Explore strategies <span>→</span></a>
+              <a className="button button-quiet" href="#install">Install CLI</a>
             </div>
-            <div className="hero-proof" aria-label="Product principles">
-              <span>Declarative YAML</span>
-              <span>Fixed artifacts</span>
-              <span>Repeatable execution</span>
+            <div className="hero-flow" aria-label="YAML compiles to an artifact used in simulation or live trading">
+              <div><small>Source</small><strong>YAML</strong></div>
+              <span aria-hidden="true">→</span>
+              <div><small>Artifact</small><strong>.WR</strong></div>
+              <span aria-hidden="true">→</span>
+              <div><small>Runtime</small><strong>SIMULATION / LIVE</strong></div>
             </div>
           </div>
 
