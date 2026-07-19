@@ -7,7 +7,7 @@ Write strategies as declarative programs, compile them into executable artifacts
 Strategies are not scripts.  
 They are compiled.
 
-![Trade Plan Criteria Demo](https://www.whalerider.org/Assets/trade-plan-criteria.gif)
+![Trade Plan Criteria Demo](Assets/trade-plan-criteria.gif)
 
 WhaleRider turns trading logic into deterministic, reproducible execution:
 
@@ -157,15 +157,15 @@ INITIAL_CASH: 100000
 ```
 ## Auto completion
 
-![Trade Plan Risk Demo](https://www.whalerider.org/Assets/trade-plan-risk.gif)
+![Trade Plan Risk Demo](Assets/trade-plan-risk.gif)
 
-![Trade Plan Segment Demo](https://www.whalerider.org/Assets/trade-plan-segment.gif)
+![Trade Plan Segment Demo](Assets/trade-plan-segment.gif)
 
-![Trade Plan Indicators Demo](https://www.whalerider.org/Assets/trade-plan-indicators.gif)
+![Trade Plan Indicators Demo](Assets/trade-plan-indicators.gif)
 
-![Trade Plan Signals Demo](https://www.whalerider.org/Assets/trade-plan-signals.gif)
+![Trade Plan Signals Demo](Assets/trade-plan-signals.gif)
 
-![Trade Plan Criteria Demo](https://www.whalerider.org/Assets/trade-plan-criteria.gif)
+![Trade Plan Criteria Demo](Assets/trade-plan-criteria.gif)
 ## Workflow
 
 Install → Define strategy (YAML) → **Compile (.wr)** → **Deploy** → **Run** → **Observe**

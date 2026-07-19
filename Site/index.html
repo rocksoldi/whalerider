@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WhaleRider CLI</title>
+    <meta name="description" content="Install WhaleRider CLI for algorithmic trading DSL." />
+
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #0b0f14;
+            color: #e6edf3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 720px;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 8px;
+            font-size: 34px;
+        }
+
+        p {
+            opacity: 0.7;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            margin-top: 30px;
+        }
+
+        .label {
+            font-size: 13px;
+            text-transform: uppercase;
+            opacity: 0.5;
+            margin-bottom: 8px;
+        }
+
+        .cmd {
+            background: #161b22;
+            padding: 14px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 14px;
+            display: block;
+            overflow-x: auto;
+        }
+
+        .links {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+        .note {
+            font-size: 13px;
+            opacity: 0.6;
+            margin-top: 8px;
+        }
+
+        .divider {
+            height: 1px;
+            background: #21262d;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>WhaleRider</h1>
+        <p>Algorithmic trading DSL and CLI</p>
+
+        <!-- Windows -->
+        <div class="section">
+            <div class="label">Windows (PowerShell)</div>
+            <div class="cmd">
+                irm https://cli.whalerider.org | iex
+            </div>
+            <div class="note">
+                Downloads and installs <b>wr</b> into your local environment
+            </div>
+        </div>
+
+        <!-- Linux -->
+        <div class="section">
+            <div class="label">Linux</div>
+            <div class="cmd">
+                curl -s https://cli.whalerider.org/install-wr.sh | tr -d '\r' | bash
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Scripts -->
+        <div class="section">
+            <div class="label">Installer Scripts</div>
+            <div class="links">
+                <a href="https://cli.whalerider.org">PowerShell installer</a><br />
+                <a href="https://cli.whalerider.org/install-wr.sh">Bash installer</a>
+            </div>
+            <div class="note">
+                View the installation scripts used by the commands above
+            </div>
+        </div>
+
+        <!-- Verify -->
+        <div class="section">
+            <div class="label">Verify Installation</div>
+            <div class="cmd">
+                wr --version
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="section">
+            <div class="note">
+                CLI endpoint: <a href="https://cli.whalerider.org">cli.whalerider.org</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
