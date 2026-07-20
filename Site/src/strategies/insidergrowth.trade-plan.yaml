@@ -1,0 +1,143 @@
+#
+# Insider Conviction + Economic Tailwind
+#
+# Philosophy:
+# Buy companies when insiders are aggressively accumulating shares
+# during a supportive macroeconomic environment.
+#
+# The economy determines when to be aggressive.
+# Insiders determine what to buy.
+#
+
+NAME: INSIDER_MACRO
+SIDE: LONG
+
+RISK:
+  ATR_INTERVAL: DAY
+  ATR_LOOKBACK: 14
+  STOP_LOSS_ATR: 3
+  TAKE_PROFIT_ATR: 8
+  HOLDING_MAX_PERIOD: 180D
+
+UNIVERSE:
+  MARKET_INDICES:
+    - SP500
+
+  MIN_MKT_CAP: 5000000000
+  MIN_AVG_VOLUME: 1000000
+
+INDICATORS:
+
+  #
+  # Insider activity
+  #
+
+  - NAME: INSIDER_BUY_VALUE
+    DOMAIN: INSIDERS
+    MEASUREMENT: SecuritiesTransacted * Price
+    FILTER: Side == Side.ACQUISITION
+    STEPS:
+      -
+        TYPE: BUCKET
+        LOOKBACK: 90
+        ARGS:
+          GROUP_BY: DAY
+          COUNT: 90
+          AGGREGATION: SUM
+
+  - NAME: INSIDER_SELL_VALUE
+    DOMAIN: INSIDERS
+    MEASUREMENT: SecuritiesTransacted * Price
+    FILTER: Side == Side.DISPOSITION
+    STEPS:
+      -
+        TYPE: BUCKET
+        LOOKBACK: 90
+        ARGS:
+          GROUP_BY: DAY
+          COUNT: 90
+          AGGREGATION: SUM
+  
+  - NAME: INSIDER_RATIO
+    DOMAIN: DERIVED
+    MEASUREMENT: INSIDER_BUY_VALUE / (INSIDER_SELL_VALUE + 1)
+
+  #
+  # Economy
+  #
+
+  - NAME: FED_FUNDS
+    DOMAIN: ECONOMY
+    MEASUREMENT: Value 
+    FILTER: EconomicIndicator == EconomicIndicator.FEDERAL_FUNDS 
+
+  - NAME: CPI
+    DOMAIN: ECONOMY
+    MEASUREMENT: Value 
+    FILTER: EconomicIndicator == EconomicIndicator.CPI
+
+  - NAME: UNEMPLOYMENT
+    DOMAIN: ECONOMY
+    MEASUREMENT: Value
+    FILTER: EconomicIndicator == EconomicIndicator.UNEMPLOYMENT_RATE
+
+  #
+  # Trend
+  #
+
+  - NAME: PRICE
+    DOMAIN: CANDLE
+    INTERVAL: DAY
+    MEASUREMENT: Close
+
+  - NAME: SMA200
+    DOMAIN: CANDLE
+    INTERVAL: DAY
+    MEASUREMENT: Close
+    STEPS:
+      - TYPE: SMA
+        LOOKBACK: 200
+
+SIGNALS:
+
+  #
+  # Strong insider conviction
+  #
+
+  - NAME: INSIDER_ACCUMULATION
+    IS: INSIDER_RATIO > 2
+
+  #
+  # Supportive macro environment
+  #
+
+  - NAME: ECONOMIC_TAILWIND
+    IS: CPI < 3.5 AND UNEMPLOYMENT < 6
+
+  #
+  # Long-term uptrend
+  #
+
+  - NAME: POSITIVE_TREND
+    IS: PRICE > SMA200
+
+  #
+  # Exit conditions
+  #
+
+  - NAME: INSIDER_DISTRIBUTION
+    IS: INSIDER_SELL_VALUE > INSIDER_BUY_VALUE
+
+  - NAME: MACRO_DETERIORATES
+    IS: CPI > 5 OR UNEMPLOYMENT > 7
+
+  - NAME: TREND_BREAKS
+    IS: PRICE < SMA200
+
+CRITERIA:
+
+  ENTER:
+    IF: INSIDER_ACCUMULATION AND ECONOMIC_TAILWIND AND POSITIVE_TREND
+
+  EXIT:
+    IF: INSIDER_DISTRIBUTION OR MACRO_DETERIORATES OR TREND_BREAKS
