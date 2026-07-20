@@ -1,3 +1,8 @@
-NAME: EMA_CROSSSOVER_STRATEGY
-RISK_POLICY_ID: 69e602735e898ca8a93ecebb
-TRADE_PLAN_ID: 69e6028f5e898ca8a93eceec
+# Strategy Composition
+#
+# Deploy the risk policy and trade plan first, then replace
+# the placeholders below with their deployed IDs.
+
+NAME: MEDIUM_RISK_EMA_CROSSOVER
+RISK_POLICY_ID: <RISK_POLICY_ID>
+TRADE_PLAN_ID: <TRADE_PLAN_ID>

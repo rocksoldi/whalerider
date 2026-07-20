@@ -49,6 +49,45 @@ The compiler validates the declaration and creates a fixed execution plan. When 
 | Strategy | `*.strategy.yaml` | Composition of a trade plan and risk policy. |
 | Simulation | `*.simulation.yaml` | Historical period, starting capital, and strategy execution context. |
 
+## Strategy composition
+
+A WhaleRider strategy is composed of two independently defined components:
+
+- **Trade plan** — defines what and when to trade: universe, indicators, signals, entry and exit criteria, and trade-level exits.
+- **Risk policy** — defines how the account may allocate capital: margin, maximum position value, and maximum risk per position.
+
+```text
+Trade plan (.wr)  ─┐
+                   ├─>  Strategy (.wr)  ─>  Simulation / Live
+Risk policy (.wr) ─┘
+```
+
+The trade plan and risk policy are compiled and deployed separately. Their deployed IDs are then linked by a strategy definition.
+
+### Risk policy
+
+This medium-risk policy allows a position to use at most 50% of account value and risk at most 2% of account value.
+
+```yaml
+NAME: MEDIUM_RISK
+INITIAL_MARGIN_RATE: 0.5
+MAINTENANCE_MARGIN_RATE: 0.25
+MAX_POSITION_VALUE_PCT: 50
+MAX_POSITION_RISK_PCT: 2
+```
+
+### Strategy
+
+The strategy connects one deployed risk policy to one deployed trade plan.
+
+```yaml
+NAME: MEDIUM_RISK_EMA_CROSSOVER
+RISK_POLICY_ID: <RISK_POLICY_ID>
+TRADE_PLAN_ID: <TRADE_PLAN_ID>
+```
+
+[Open the risk policy](Examples/ema-crossover/risk-policy.yaml) · [Open the strategy definition](Examples/ema-crossover/strategy.yaml)
+
 ## Quick start
 
 ### 1. Install the VS Code extension
@@ -89,9 +128,9 @@ wr compile --file ema-crossover.trade-plan.yaml
 
 The command validates the YAML and creates a compiled `.wr` artifact.
 
-## A complete strategy
+## Trade plan example
 
-This long-only EMA crossover is the smallest complete WhaleRider example. It enters when the 20-day EMA is above the 50-day EMA and exits when that relationship reverses.
+This long-only EMA crossover is a small complete trade plan. It enters when the 20-day EMA is above the 50-day EMA and exits when that relationship reverses.
 
 ```yaml
 # EMA Crossover

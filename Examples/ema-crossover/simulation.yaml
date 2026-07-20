@@ -1,6 +1,10 @@
+# EMA Crossover Simulation
+#
+# Deploy the composed strategy first, then replace the
+# placeholder below with its deployed ID.
 
-NAME: EMA_CROSSSOVER_SIMULATION
-STRATEGY_ID: 69e602e55e898ca8a93ecf20
+NAME: EMA_CROSSOVER_SIMULATION
+STRATEGY_ID: <STRATEGY_ID>
 FROM: 2018-01-01
 TO: 2026-01-01
 INITIAL_CASH: 100000
