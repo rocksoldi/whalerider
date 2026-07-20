@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Assets/whalerider-logo.svg" width="92" alt="WhaleRider logo" />
+  <img src="Assets/whalerider-logo.png" width="92" alt="WhaleRider logo" />
 </p>
 
 <h1 align="center">WhaleRider</h1>
