@@ -4,7 +4,7 @@ import indicatorsDemo from "../Assets/trade-plan-indicators.gif";
 import riskDemo from "../Assets/trade-plan-risk.gif";
 import segmentDemo from "../Assets/trade-plan-segment.gif";
 import signalsDemo from "../Assets/trade-plan-signals.gif";
-import brandLogo from "../Assets/brand-logo.png";
+import brandLogo from "../Assets/brand-logo-integrated.png";
 import qualityValueStrategy from "./strategies/qualityvalue.trade-plan.yaml?raw";
 import breadthRecoveryStrategy from "./strategies/breadthrecovery.trade-plan.yaml?raw";
 import emaCrossoverStrategy from "./strategies/emacrossover.trade-plan.yaml?raw";
@@ -467,15 +467,15 @@ function App() {
           <p>Define the strategy, compile the artifact, and reproduce the same execution from the same inputs.</p>
           <div className="hero-actions closing-actions">
             <a className="button button-primary" href="#install">Open CLI setup <span>→</span></a>
-            <a className="button button-quiet" href="mailto:support@rocksoldi.com">support@rocksoldi.com</a>
+            <a className="button button-quiet" href="mailto:whalerider@rocksoldi.com">Contact us</a>
           </div>
         </section>
       </main>
 
       <footer className="site-footer section-frame">
-        <div className="footer-brand"><div><strong>WhaleRider</strong><small>Deterministic strategy runtime</small></div></div>
-        <div className="footer-links"><a href="#cli">CLI</a><a href="#examples">Examples</a><a href="#install">Install</a><a href="https://medium.com/@erezlif/rocksoldi-whalerider-9570adb0d7cd">Philosophy ↗</a></div>
-        <p>© {new Date().getFullYear()} Rocksolid. WhaleRider documentation.</p>
+        <div className="footer-brand"><div><strong>WhaleRider</strong><small>by Rocksoldi</small></div></div>
+        <div className="footer-links"><a href="#cli">CLI</a><a href="#examples">Examples</a><a href="#install">Install</a><a href="mailto:whalerider@rocksoldi.com">Contact</a><a href="https://medium.com/@erezlif/rocksoldi-whalerider-9570adb0d7cd">Philosophy ↗</a></div>
+        <p>© {new Date().getFullYear()} Rocksoldi.</p>
       </footer>
     </div>
   );
