@@ -1,8 +1,0 @@
-# Strategy Composition
-#
-# Deploy the risk policy and trade plan first, then replace
-# the placeholders below with their deployed IDs.
-
-NAME: MEDIUM_RISK_EMA_CROSSOVER
-RISK_POLICY_ID: <RISK_POLICY_ID>
-TRADE_PLAN_ID: <TRADE_PLAN_ID>

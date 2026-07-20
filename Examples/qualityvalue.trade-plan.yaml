@@ -74,11 +74,11 @@ SIGNALS:
   # Reject loss-making companies and very expensive valuations.
   # Both earnings and free cash flow must be positive.
   - NAME: FAIR_VALUE
-    IS: PE_RATIO > 0 AND PE_RATIO < 25 AND FCF_RATIO > 0 AND FCF_RATIO < 25
+    IS: PE_RATIO > 0 AND PE_RATIO < 0.25 AND FCF_RATIO > 0 AND FCF_RATIO < 0.25
 
   # Require a gross margin greater than 30%.
   - NAME: PROFITABLE
-    IS: GROSS_MARGIN > 0.30
+    IS: GROSS_MARGIN > 0.3
 
   # Negative equity is rejected by the lower bound.
   # Debt-to-equity must remain below 1.5.
@@ -91,7 +91,7 @@ SIGNALS:
 
   # Exit when profitability, cash-flow valuation, or debt becomes weak.
   - NAME: FUNDAMENTALS_WEAKEN
-    IS: GROSS_MARGIN < 0.20 OR FCF_RATIO <= 0 OR DEBT_TO_EQUITY > 2
+    IS: GROSS_MARGIN < 0.2 OR FCF_RATIO <= 0 OR DEBT_TO_EQUITY > 2
 
   # Also exit when price falls below its long-term trend.
   - NAME: TREND_BREAKS

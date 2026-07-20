@@ -187,7 +187,7 @@ CRITERIA:
     IF: TREND_DOWN
 ```
 
-[Open the complete EMA crossover file](Examples/ema-crossover/trade-plan.yaml)
+[Open the complete EMA crossover file](Examples/emacrossover.trade-plan.yaml)
 
 ## Strategy examples
 
@@ -195,10 +195,10 @@ The examples progress from a basic technical rule to multi-domain strategies and
 
 | Order | Example | Difficulty | Domains | What it demonstrates |
 | --- | --- | --- | --- | --- |
-| **01** | [EMA crossover](Examples/ema-crossover/trade-plan.yaml) | Simple | Technical | Daily indicators, signals, risk, and direct entry/exit criteria. |
-| **02** | [Breadth recovery](Examples/breadth-recovery/trade-plan.yaml) | Intermediate | Technical + breadth | A sequential recovery state machine with an abort path. |
-| **03** | [Quality value](Examples/quality-value/trade-plan.yaml) | Advanced | Fundamentals + technical | Valuation, profitability, debt, liquidity, and a long-term trend filter. |
-| **04** | [Insider conviction](Examples/insider-growth/trade-plan.yaml) | Advanced | Insiders + economy + technical | Insider accumulation, macro conditions, and price trend in one strategy. |
+| **01** | [EMA crossover](Examples/emacrossover.trade-plan.yaml) | Simple | Technical | Daily indicators, signals, risk, and direct entry/exit criteria. |
+| **02** | [Breadth recovery](Examples/breadthrecovery.trade-plan.yaml) | Intermediate | Technical + breadth | A sequential recovery state machine with an abort path. |
+| **03** | [Quality value](Examples/qualityvalue.trade-plan.yaml) | Advanced | Fundamentals + technical | Valuation, profitability, debt, liquidity, and a long-term trend filter. |
+| **04** | [Insider conviction](Examples/insidergrowth.trade-plan.yaml) | Advanced | Insiders + economy + technical | Insider accumulation, macro conditions, and price trend in one strategy. |
 
 > [!NOTE]
 > These examples demonstrate the WhaleRider language. They are research starting points, not investment advice or a guarantee of returns.

@@ -94,19 +94,19 @@ SIGNALS:
   # Marks an unhealthy market where only a small
   # percentage of stocks remain above their long-term trend.
   - NAME: OVERSOLD_MARKET
-    IS: ABOVE_EMA200 < 30
+    IS: ABOVE_EMA200 < 0.3
 
   # Indicates that participation has started expanding.
   - NAME: BREADTH_RECOVERY
-    IS: ABOVE_EMA200 > 45
+    IS: ABOVE_EMA200 > 0.45
 
   # Confirms that the recovery has become broad-based.
   - NAME: CONFIRMED_MARKET
-    IS: ABOVE_EMA200 > 60
+    IS: ABOVE_EMA200 > 0.6
 
   # Indicates the recovery failed before confirmation.
   - NAME: RECOVERY_FAILED
-    IS: ABOVE_EMA200 < 35
+    IS: ABOVE_EMA200 < 0.35
 
   #
   # Individual Stock
@@ -126,7 +126,7 @@ SIGNALS:
 
   # Broad market participation has deteriorated.
   - NAME: BREADTH_BREAKDOWN
-    IS: ABOVE_EMA200 < 40
+    IS: ABOVE_EMA200 < 0.4
 
 CRITERIA:
 

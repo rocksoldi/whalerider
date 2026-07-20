@@ -1,9 +1,0 @@
-# Medium Risk Policy
-#
-# Controls account-level allocation and position risk.
-
-NAME: MEDIUM_RISK
-INITIAL_MARGIN_RATE: 0.5
-MAINTENANCE_MARGIN_RATE: 0.25
-MAX_POSITION_VALUE_PCT: 50
-MAX_POSITION_RISK_PCT: 2
