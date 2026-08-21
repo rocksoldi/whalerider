@@ -28,10 +28,9 @@ RISK:
 # MAX_BETA avoids the most volatile companies.
 UNIVERSE:
   MARKET_INDICES:
-    - SP500
-  MIN_MKT_CAP: 10000000000
-  MIN_AVG_VOLUME: 1000000
-  MAX_BETA: 1.5
+    - NASDAQ100
+    - DOW30
+    - SP500 
 
 INDICATORS:
   # Price-to-earnings is the first valuation check.
@@ -59,13 +58,11 @@ INDICATORS:
   - NAME: PRICE
     DOMAIN: CANDLE
     INTERVAL: DAY
-    MEASUREMENT: Close
 
   # The 200-day moving average identifies the long-term trend.
   - NAME: SMA200
     DOMAIN: CANDLE
     INTERVAL: DAY
-    MEASUREMENT: Close
     STEPS:
       - TYPE: SMA
         LOOKBACK: 200

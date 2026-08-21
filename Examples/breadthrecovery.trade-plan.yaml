@@ -37,10 +37,7 @@ UNIVERSE:
   # Focus on liquid, established companies.
   MARKET_INDICES:
     - SP500
-
-  MIN_MKT_CAP: 5000000000
-  MIN_AVG_VOLUME: 1000000
-
+  
 INDICATORS:
 
   #
@@ -66,10 +63,18 @@ INDICATORS:
   # This acts as a measure of overall market participation.
   - NAME: ABOVE_EMA200
     DOMAIN: DERIVED
-    MEASUREMENT: PRICE / EMA200
-    BREADTH:
-      OPERATOR: GREATER_THAN
-      VALUE: 1
+    MEASUREMENT: PRICE - EMA200
+    STEPS:
+      -
+        TYPE: THRESHOLD
+        LOOKBACK: 1
+        ARGS:
+          ABOVE: 1
+          BELOW: 0
+          EQUAL: 0
+          REFERENCE: 0
+    CROSS_SECTION:
+      AGGREGATION: AVG
 
   #
   # Individual Stock Trend
