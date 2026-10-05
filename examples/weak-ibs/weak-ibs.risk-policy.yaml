@@ -1,0 +1,32 @@
+# ==============================================================================
+# WHALERIDER RISK-POLICY CONFIGURATION
+# ==============================================================================
+# Artifact Name: WEAK_IBS_RISK_POLICY
+# Purpose: Defines reusable limits for position value and loss exposure.
+# Status: Generated configuration; validation is required before deployment.
+# Website: https://whalerider.org
+# WhaleRider © 2026 RockSoldi. All rights reserved.
+# ------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------
+# POSITION LIMITS
+# ------------------------------------------------------------------------------
+# Defines per-position value and risk limits as percentages of account equity.
+# This policy permits each new position to use up to the full current account
+# equity, subject to available buying power and strategy allocation capacity.
+NAME: WEAK_IBS_RISK_POLICY
+# Caps one new position at 100% of current account equity.
+MAX_POSITION_VALUE_PCT: 100
+# Targets a maximum loss budget of 100% of current account equity per position.
+MAX_POSITION_RISK_PCT: 100
+
+# ------------------------------------------------------------------------------
+# LEGAL AND RISK NOTICE
+# ------------------------------------------------------------------------------
+# This configuration is provided for technical and informational use only.
+# It is not investment, financial, legal, or tax advice and is not a
+# recommendation or solicitation to buy, sell, or hold any instrument.
+# Trading involves risk of loss. Margin and short selling may result in
+# losses exceeding the capital initially committed.
+# Historical, backtested, and simulated results do not guarantee future results.
+# ==============================================================================

@@ -1,295 +1,107 @@
 <p align="center">
-  <img src="Assets/whalerider-logo.png" width="92" alt="WhaleRider logo" />
+  <a href="https://www.whalerider.org/">
+    <picture>
+      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/hero-mobile-dark.svg" />
+      <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/hero-mobile-light.svg" />
+      <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg" />
+      <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg" />
+      <img src="assets/hero-light.svg" width="1200" alt="WhaleRider. Any LLM. One framework. Build. Simulate. Analyze. Systematic research infrastructure." />
+    </picture>
+  </a>
 </p>
-
-<h1 align="center">WhaleRider</h1>
-
-<p align="center"><strong>One language. Every signal.</strong></p>
 
 <p align="center">
-  Define cross-domain trading strategies in YAML, compile them into fixed
-  <code>.wr</code> artifacts, and run the same artifacts in simulation or live trading.
+  <strong><a href="https://www.whalerider.org/account/api">Connect WhaleRider →</a></strong>
+  &nbsp; · &nbsp;
+  <a href="https://www.whalerider.org/sessions">Real Sessions</a>
+  &nbsp; · &nbsp;
+  <a href="https://www.whalerider.org/docs">Documentation</a>
+  &nbsp; · &nbsp;
+  <a href="https://www.whalerider.org/pricing">Pricing</a>
 </p>
 
-<p align="center"><sub>WhaleRider by Rocksoldi</sub></p>
+# WhaleRider
+
+**Build. Simulate. Analyze.**
+
+WhaleRider brings systematic research infrastructure to the LLM and tools you already use.
+
+Describe your own rules in natural language. WhaleRider turns them into validated, editable research artifacts, runs historical simulations using market and financial data, and helps you explore the results. Continue in your AI conversation, open the YAML in VS Code, or work through the CLI.
+
+**Works with any MCP-compatible AI, online or desktop.**
+
+This repository is the public companion to [whalerider.org](https://www.whalerider.org/): connection guides, research examples, and developer workflows. The hosted platform and its implementation are maintained separately.
+
+## One conversation. The complete research workflow.
+
+| Build | Simulate | Analyze |
+| --- | --- | --- |
+| Describe your universe, indicators, entry and exit rules, and risk assumptions. Create validated definitions that you can inspect and edit. | Choose the historical period and starting capital. Run your definitions in a simulated account and follow the run to completion. | Explore performance, drawdowns, simulated trades, annual returns, monthly heatmaps, and equity curves. Keep asking questions. |
+
+For example, after connecting WhaleRider:
+
+> Create a trade plan named WEAK_IBS_TRADE_PLAN. Use a maximum holding period of 60 days and a universe containing only SPY. Enter when IBS is below 0.1 and exit when IBS is above 0.8.
+
+Then create the risk policy, strategy, and simulation, run it, and ask about the results. The [complete WEAK_IBS session](https://www.whalerider.org/sessions/weak-ibs) shows this workflow with its generated definitions and recorded analysis.
+
+## See the research behind the product
+
+<a href="https://www.whalerider.org/sessions/pivot-spring">
+  <picture>
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/pivot-spring-mobile-dark.svg" />
+    <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/pivot-spring-mobile-light.svg" />
+    <source media="(prefers-color-scheme: dark)" srcset="assets/pivot-spring-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="assets/pivot-spring-light.svg" />
+    <img src="assets/pivot-spring-light.svg" width="1200" alt="PIVOT_SPRING historical simulation, 2016–2025: total return 764.08%, maximum drawdown 28.03%, 944 completed trades. Annual returns include losses in 2018 and 2022. Open the full session for assumptions and analysis." />
+  </picture>
+</a>
+
+| Real session | Research question | Explore |
+| --- | --- | --- |
+| **PIVOT_SPRING** · NASDAQ-100 · 2016–2025 | Can financial strength and a staged recovery from monthly support form a systematic rule set? | [Full conversation](https://www.whalerider.org/sessions/pivot-spring) · [Local example](examples/pivot-spring/README.md) |
+| **WEAK_IBS** · SPY · 2006–2025 | What happens when a single-ticker rule enters at low internal bar strength and exits at high internal bar strength? | [Full conversation](https://www.whalerider.org/sessions/weak-ibs) · [Local example](examples/weak-ibs/README.md) |
+
+These are recorded historical simulations. Results depend on the definitions, data, period, and modeling assumptions; they do not guarantee future results. [Session details and source data](docs/real-sessions.md).
+
+[Watch the 42-second introduction](https://www.whalerider.org/#intro-video-title) or [browse all real sessions](https://www.whalerider.org/sessions).
+
+## Everything you need for systematic strategy research
+
+| Capability | What you can do |
+| --- | --- |
+| **Your preferred AI** | Build, refine, simulate, and analyze through an MCP connection. |
+| **VS Code IntelliSense** | Edit generated YAML with completion, hover documentation, and schema-aware diagnostics. |
+| **CLI and automation** | Compile definitions, deploy artifacts, start simulations, and retrieve results from scripts. |
+| **An expressive language** | Combine indicators, signals, sequential criteria, position controls, and reusable risk policies. |
+| **Multi-domain data** | Research price, financial statements, ratios, macro, insider activity, short interest, and more. |
+| **Historical simulation** | Inspect performance, simulated positions, and the periods behind the headline results. |
+
+## Connect and start building
+
+1. **Get workspace access.** Open [Connect WhaleRider](https://www.whalerider.org/account/api) and follow the access-key flow.
+2. **Connect your AI.** Add the MCP server URL below to a compatible AI client. Enter your workspace admin access key on WhaleRider’s authorization page.
+3. **Describe your research rules.** Ask WhaleRider to create and validate a trade plan. Continue with a risk policy, strategy, and historical simulation.
+4. **Explore the completed run.** Ask for the summary, annual returns, drawdown periods, or individual simulated trades.
+
+```text
+https://mcp.whalerider.org
+```
+
+[Connection guide](docs/getting-started.md) · [Current access and pricing](https://www.whalerider.org/pricing)
+
+## Go deeper
+
+- [Examples](examples/README.md): complete research definitions and templates for your own workspace.
+- [Artifact model](docs/artifact-model.md): how trade plans, risk policies, strategies, and simulations fit together.
+- [CLI and VS Code](docs/developer-tools.md): local compilation, deployment order, simulation, and result inspection.
+- [Product documentation](https://www.whalerider.org/docs): the complete language and command reference.
+
+## Help and contact
+
+For access, account, billing, or private support, contact [whalerider@rocksoldi.com](mailto:whalerider@rocksoldi.com). For a correction to these guides or examples, [open an issue](https://github.com/rocksoldi/whalerider/issues) or read [Contributing](CONTRIBUTING.md).
 
 ---
 
-WhaleRider is a strategy compiler and deterministic trading runtime. Its YAML language can combine technical, fundamental, market breadth, insider, and economic data in one strategy definition.
+Software for user-directed research and historical simulation. WhaleRider does not execute trades, place orders, provide investment recommendations, manage assets, enable transactions, or provide brokerage services. Historical and simulated results do not guarantee future results.
 
-```text
-YAML source  ->  .wr artifact  ->  Simulation / Live
-```
-
-The compiler validates the declaration and creates a fixed execution plan. When the runtime receives the same inputs, the strategy produces the same decisions.
-
-## Why compile strategies?
-
-- Validate the complete strategy before execution.
-- Keep trading logic in a versioned, portable artifact.
-- Use the same artifact in simulation and live trading.
-- Trace each decision from its YAML declaration to the resulting trade.
-- Separate strategy logic, risk policy, and execution context.
-
-## Workflow
-
-| Step | Action | Result |
-| --- | --- | --- |
-| **01** | Define | Write strategy logic, risk, and execution settings in YAML. |
-| **02** | Compile | Validate the YAML and produce a `.wr` artifact. |
-| **03** | Run | Use the artifact in simulation or live execution. |
-| **04** | Inspect | Query runs, trades, performance, and risk from the CLI. |
-
-## Core files
-
-| Component | YAML file | Purpose |
-| --- | --- | --- |
-| Trade plan | `*.trade-plan.yaml` | Indicators, signals, entry and exit criteria, universe, and position risk. |
-| Risk policy | `*.risk-policy.yaml` | Account-level investment, margin, commission, and trade-risk limits. |
-| Strategy | `*.strategy.yaml` | Composition of a trade plan and risk policy. |
-| Simulation | `*.simulation.yaml` | Historical period, starting capital, and strategy execution context. |
-
-## Strategy composition
-
-A WhaleRider strategy is composed of two independently defined components:
-
-- **Trade plan** — defines what and when to trade: universe, indicators, signals, entry and exit criteria, and trade-level exits.
-- **Risk policy** — defines how the account may allocate capital: margin, maximum position value, and maximum risk per position.
-
-```text
-Trade plan (.wr)  ─┐
-                   ├─>  Strategy (.wr)  ─>  Simulation / Live
-Risk policy (.wr) ─┘
-```
-
-The trade plan and risk policy are compiled and deployed separately. Their deployed IDs are then linked by a strategy definition.
-
-### Risk policy
-
-This medium-risk policy allows a position to use at most 50% of account value and risk at most 2% of account value.
-
-```yaml
-NAME: MEDIUM_RISK
-INITIAL_MARGIN_RATE: 0.5
-MAINTENANCE_MARGIN_RATE: 0.25
-MAX_POSITION_VALUE_PCT: 50
-MAX_POSITION_RISK_PCT: 2
-```
-
-### Strategy
-
-The strategy connects one deployed risk policy to one deployed trade plan.
-
-```yaml
-NAME: MEDIUM_RISK_EMA_CROSSOVER
-RISK_POLICY_ID: <RISK_POLICY_ID>
-TRADE_PLAN_ID: <TRADE_PLAN_ID>
-```
-
-[Open the risk policy](Examples/ema-crossover/risk-policy.yaml) · [Open the strategy definition](Examples/ema-crossover/strategy.yaml)
-
-## Quick start
-
-### 1. Install the VS Code extension
-
-The extension provides completion, schema validation, and diagnostics for WhaleRider YAML files.
-
-1. Open **Extensions** in VS Code.
-2. Search for **WhaleRider DSL**.
-3. Select **WhaleRider DSL** and click **Install**.
-
-### 2. Install the CLI
-
-#### Windows PowerShell
-
-```powershell
-irm https://cli.whalerider.org | iex
-```
-
-#### Linux
-
-```bash
-curl -s https://cli.whalerider.org/install-wr.sh | tr -d '\r' | bash
-```
-
-Verify the installation:
-
-```bash
-wr --version
-```
-
-### 3. Compile locally
-
-Compilation does not require an access profile.
-
-```bash
-wr compile --file ema-crossover.trade-plan.yaml
-```
-
-The command validates the YAML and creates a compiled `.wr` artifact.
-
-## Trade plan example
-
-This long-only EMA crossover is a small complete trade plan. It enters when the 20-day EMA is above the 50-day EMA and exits when that relationship reverses.
-
-```yaml
-# EMA Crossover
-#
-# A small long-only trend strategy.
-# Enter when the fast EMA moves above the slow EMA.
-# Exit when the fast EMA moves below the slow EMA.
-
-NAME: EMA_CROSSOVER
-SIDE: LONG
-
-RISK:
-  ATR_INTERVAL: DAY
-  ATR_LOOKBACK: 14
-  STOP_LOSS_ATR: 2
-  TAKE_PROFIT_ATR: 4
-  HOLDING_MAX_PERIOD: 120D
-
-UNIVERSE:
-  MARKET_INDICES:
-    - SP500
-  
-INDICATORS:
-  
-  - NAME: EMA20
-    DOMAIN: CANDLE
-    INTERVAL: DAY
-    STEPS:
-      - TYPE: EMA
-        LOOKBACK: 20
-
-  - NAME: EMA50
-    DOMAIN: CANDLE
-    INTERVAL: DAY
-    STEPS:
-      - TYPE: EMA
-        LOOKBACK: 50
-
-  - NAME: SPY_EMA20
-    DOMAIN: CANDLE
-    INTERVAL: DAY
-    EXPLICIT_TICKER: SPY
-    STEPS:
-      - TYPE: EMA
-        LOOKBACK: 20
-
-  - NAME: SPY_EMA50
-    DOMAIN: CANDLE
-    INTERVAL: DAY
-    EXPLICIT_TICKER: SPY
-    STEPS:
-      - TYPE: EMA
-        LOOKBACK: 50  
-
-
-SIGNALS:
-
-  - NAME: TREND_UP
-    IS: EMA20 > EMA50
-
-  - NAME: TREND_DOWN
-    IS: EMA20 < EMA50
-
-  - NAME: MARKET_RISK_ON
-    IS: SPY_EMA20 > SPY_EMA50
-
-  - NAME: MARKET_RISK_OFF
-    IS: SPY_EMA20 < SPY_EMA50     
-
-CRITERIA:
-  ENTER:
-    IF: TREND_UP AND MARKET_RISK_ON
-
-  EXIT:
-    IF: TREND_DOWN OR MARKET_RISK_OFF
-
-```
-
-[Open the complete EMA crossover file](Examples/emacrossover.trade-plan.yaml)
-
-## Strategy examples
-
-The examples progress from a basic technical rule to multi-domain strategies and ordered state machines.
-
-| Order | Example | Difficulty | Domains | What it demonstrates |
-| --- | --- | --- | --- | --- |
-| **01** | [EMA crossover](Examples/emacrossover.trade-plan.yaml) | Simple | Technical | Daily indicators, signals, risk, and direct entry/exit criteria. |
-| **02** | [Breadth recovery](Examples/breadthrecovery.trade-plan.yaml) | Intermediate | Technical + breadth | A sequential recovery state machine with an abort path. |
-| **03** | [Quality value](Examples/qualityvalue.trade-plan.yaml) | Advanced | Fundamentals + technical | Valuation, profitability, debt, liquidity, and a long-term trend filter. |
-| **04** | [Insider conviction](Examples/insidergrowth.trade-plan.yaml) | Advanced | Insiders + economy + technical | Insider accumulation, macro conditions, and price trend in one strategy. |
-
-> [!NOTE]
-> These examples demonstrate the WhaleRider language. They are research starting points, not investment advice or a guarantee of returns.
-
-## CLI reference
-
-### Setup
-
-```bash
-wr --version
-wr profile set --name <NAME> --access-key <ACCESS_KEY>
-wr profile use --name <NAME>
-wr profile list
-```
-
-Profiles are required for platform operations. Local compilation does not require a profile.
-
-### Compile and deploy artifacts
-
-```bash
-wr compile --file <NAME>.trade-plan.yaml
-wr compile --file <NAME>.risk-policy.yaml
-wr compile --file <NAME>.strategy.yaml
-wr deploy --file <NAME>.<COMPONENT>.wr
-```
-
-### Run and inspect simulations
-
-```bash
-wr simulation run --simulation-id <SIMULATION_ID>
-wr simulation run get --simulation-run-id <RUN_ID>
-wr simulation run list --table
-wr simulation run performance get --simulation-run-id <RUN_ID> --group-interval ALL --table
-```
-
-### Inspect deployed definitions and trades
-
-```bash
-wr strategy list --table
-wr trade-plan list --table
-wr broker-account config list --table
-wr trade list --broker-account-id <ACCOUNT_ID> --skip 0 --limit 20 --table
-```
-
-Use `wr help` to list commands, or `wr help <command>` for command-specific options.
-
-## VS Code authoring
-
-WhaleRider DSL helps author:
-
-- nested entry and exit criteria;
-- indicator measurements, intervals, lookbacks, and transforms;
-- named signals and expressions;
-- ATR-based risk settings; and
-- market universes and ticker filters.
-
-![WhaleRider criteria completion in VS Code](Assets/trade-plan-criteria.gif)
-
-## Deterministic execution
-
-`.yaml` defines intent.  
-`.wr` defines execution.
-
-Compilation creates a fixed strategy artifact with no hidden script state. That artifact is the unit deployed to each supported runtime.
-
-For more detail, read [Strategies are compiled programs](https://medium.com/@erezlif/rocksoldi-whalerider-9570adb0d7cd).
-
-## Contact
-
-Questions or access requests: [whalerider@rocksoldi.com](mailto:whalerider@rocksoldi.com)
-
-<sub>WhaleRider by Rocksoldi.</sub>
+WhaleRider © 2026 ROCKSOLDI LTD. [Terms](https://www.whalerider.org/terms) · [Privacy](https://www.whalerider.org/privacy) · [Refund policy](https://www.whalerider.org/refund-policy)

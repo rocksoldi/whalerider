@@ -1,0 +1,7 @@
+{
+  "repository": "rocksoldi/whalerider",
+  "description": "Systematic research infrastructure for your preferred AI. Build validated research rules, run historical simulations, and analyze results through MCP, VS Code, or the CLI.",
+  "homepage": "https://www.whalerider.org/",
+  "topics": ["mcp", "systematic-research", "historical-simulation", "backtesting", "quantitative-research", "yaml", "cli", "vscode"],
+  "social_preview": "assets/social-preview.png"
+}

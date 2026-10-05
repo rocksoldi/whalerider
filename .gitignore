@@ -1,5 +1,12 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
+# Local editor state and generated compilation artifacts
+.vs/
+.vscode/
+*.wr
+*.log
+.DS_Store
+Thumbs.db
 
-/.vs
+# Local credentials and environment overrides
+.env
+.env.*
+!.env.example

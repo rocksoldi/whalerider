@@ -1,0 +1,23 @@
+name: Documentation or example issue
+description: Report an error in a guide, link, or research example.
+title: "[Docs] "
+body:
+  - type: input
+    id: location
+    attributes:
+      label: File or section
+      description: Link to the affected guide or example.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What needs correcting?
+      description: Describe the current text or behavior and the expected correction.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Supporting details
+      description: Include steps, a minimal example, or sanitized CLI output if relevant. Do not include access keys or private workspace data.

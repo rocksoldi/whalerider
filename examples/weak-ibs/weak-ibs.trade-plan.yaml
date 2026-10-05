@@ -1,0 +1,93 @@
+# ==============================================================================
+# WHALERIDER TRADE-PLAN CONFIGURATION
+# ==============================================================================
+# Artifact Name: WEAK_IBS_TRADE_PLAN
+# Purpose: Defines market scope, calculations, signals, and trading decisions.
+# Status: Generated configuration; validation is required before deployment.
+# Website: https://whalerider.org
+# WhaleRider © 2026 RockSoldi. All rights reserved.
+# ------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------
+# TRADE-PLAN IDENTITY
+# ------------------------------------------------------------------------------
+# Identifies this trade-plan definition using the required stable artifact name.
+NAME: WEAK_IBS_TRADE_PLAN
+
+# ------------------------------------------------------------------------------
+# TRADE DIRECTION
+# ------------------------------------------------------------------------------
+# Opens long positions when the daily internal bar strength condition is oversold.
+SIDE: LONG
+
+# ------------------------------------------------------------------------------
+# RISK MANAGEMENT
+# ------------------------------------------------------------------------------
+# Limits each position to a maximum holding period of sixty calendar days.
+# Existing positions are not replaced when capital is unavailable.
+RISK:
+  HOLDING_MAX_PERIOD: 60D
+  REPLACEMENT_MODE: NONE
+
+# ------------------------------------------------------------------------------
+# MARKET UNIVERSE
+# ------------------------------------------------------------------------------
+# Restricts all evaluation and trading activity to the SPY ticker.
+UNIVERSE:
+  TICKERS:
+    - SPY
+
+# ------------------------------------------------------------------------------
+# INDICATORS
+# ------------------------------------------------------------------------------
+# Captures daily closing, low, and high prices for internal bar strength.
+# IBS measures the close's location within the daily high-to-low price range.
+INDICATORS:
+  - NAME: DAILY_CLOSE
+    DOMAIN: CANDLE
+    INTERVAL: DAY
+    MEASUREMENT: Close
+  - NAME: DAILY_LOW
+    DOMAIN: CANDLE
+    INTERVAL: DAY
+    MEASUREMENT: Low
+  - NAME: DAILY_HIGH
+    DOMAIN: CANDLE
+    INTERVAL: DAY
+    MEASUREMENT: High
+  - NAME: IBS
+    DOMAIN: DERIVED
+    MEASUREMENT: (DAILY_CLOSE - DAILY_LOW) / (DAILY_HIGH - DAILY_LOW + 0.0000001)
+
+# ------------------------------------------------------------------------------
+# SIGNALS
+# ------------------------------------------------------------------------------
+# Identifies an oversold IBS reading below 0.1 for entry.
+# Identifies an elevated IBS reading above 0.8 for the signal-based exit.
+SIGNALS:
+  - NAME: IBS_OVERSOLD
+    IS: IBS < 0.1
+  - NAME: IBS_OVERBOUGHT
+    IS: IBS > 0.8
+
+# ------------------------------------------------------------------------------
+# TRADING CRITERIA
+# ------------------------------------------------------------------------------
+# Enters when daily IBS is below 0.1 and exits when it exceeds 0.8.
+# The independent sixty-day maximum holding control remains active.
+CRITERIA:
+  ENTER:
+    IF: IBS_OVERSOLD
+  EXIT:
+    IF: IBS_OVERBOUGHT
+
+# ------------------------------------------------------------------------------
+# LEGAL AND RISK NOTICE
+# ------------------------------------------------------------------------------
+# This configuration is provided for technical and informational use only.
+# It is not investment, financial, legal, or tax advice and is not a
+# recommendation or solicitation to buy, sell, or hold any instrument.
+# Trading involves risk of loss. Margin and short selling may result in
+# losses exceeding the capital initially committed.
+# Historical, backtested, and simulated results do not guarantee future results.
+# ==============================================================================

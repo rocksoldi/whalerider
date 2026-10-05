@@ -1,0 +1,36 @@
+# ==============================================================================
+# WHALERIDER RISK-POLICY CONFIGURATION
+# ==============================================================================
+# Artifact Name: PIVOT_SPRING_RISK_POLICY
+# Purpose: Defines reusable limits for position value and loss exposure.
+# Status: Generated configuration; validation is required before deployment.
+# Website: https://whalerider.org
+# WhaleRider © 2026 RockSoldi. All rights reserved.
+# ------------------------------------------------------------------------------
+
+NAME: PIVOT_SPRING_RISK_POLICY
+
+# ------------------------------------------------------------------------------
+# POSITION LIMITS
+# ------------------------------------------------------------------------------
+# Defines per-position value and risk limits as percentages of account equity.
+# Caps each newly sized position at 30% of current account equity.
+# This per-position limit remains separate from any strategy-level allocation cap.
+MAX_POSITION_VALUE_PCT: 30
+# Rejects a newly sized position when its value is below 1% of current equity.
+MIN_POSITION_VALUE_PCT: 1
+# Targets a maximum loss budget of 3% of current account equity per position.
+# With an ATR stop, this limit can constrain position size; otherwise it derives
+# a target stop-loss price after value-based sizing.
+MAX_POSITION_RISK_PCT: 3
+
+# ------------------------------------------------------------------------------
+# LEGAL AND RISK NOTICE
+# ------------------------------------------------------------------------------
+# This configuration is provided for technical and informational use only.
+# It is not investment, financial, legal, or tax advice and is not a
+# recommendation or solicitation to buy, sell, or hold any instrument.
+# Trading involves risk of loss. Margin and short selling may result in
+# losses exceeding the capital initially committed.
+# Historical, backtested, and simulated results do not guarantee future results.
+# ==============================================================================

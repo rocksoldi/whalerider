@@ -1,0 +1,129 @@
+# ==============================================================================
+# WHALERIDER TRADE-PLAN CONFIGURATION
+# ==============================================================================
+# Artifact Name: PIVOT_SPRING_TRADE_PLAN
+# Purpose: Defines market scope, calculations, signals, and trading decisions.
+# Status: Generated configuration; validation is required before deployment.
+# Website: https://whalerider.org
+# WhaleRider © 2026 RockSoldi. All rights reserved.
+# ------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------
+# TRADE-PLAN DEFINITION
+# ------------------------------------------------------------------------------
+# Identifies this long-only plan for financially strong NASDAQ-100 common stocks.
+NAME: PIVOT_SPRING_TRADE_PLAN
+SIDE: LONG
+
+# ------------------------------------------------------------------------------
+# RISK MANAGEMENT
+# ------------------------------------------------------------------------------
+# Limits each holding to 30 calendar days and retains existing positions when
+# capital is unavailable. ATR distances use daily fourteen-period volatility.
+RISK:
+  HOLDING_MAX_PERIOD: 30D
+  REPLACEMENT_MODE: NONE
+  ATR:
+    LOOKBACK: 14
+    INTERVAL: DAY
+    STOP_LOSS: 3
+    TAKE_PROFIT: 1.5
+
+# ------------------------------------------------------------------------------
+# MARKET UNIVERSE
+# ------------------------------------------------------------------------------
+# Evaluates common stocks with point-in-time membership in the NASDAQ-100.
+# Historical index membership is applied at the relevant evaluation time.
+UNIVERSE:
+  SECURITY_TYPES:
+    - STOCK
+  MARKET_INDICES:
+    - NASDAQ100
+
+# ------------------------------------------------------------------------------
+# INDICATORS
+# ------------------------------------------------------------------------------
+# Calculates daily price references, standard weekly and monthly S2 pivots, and
+# financial ratios. Pivot calculations use daily candle data as requested.
+INDICATORS:
+  - NAME: DAILY_LOW
+    DOMAIN: CANDLE
+    INTERVAL: DAY
+    MEASUREMENT: Low
+
+  - NAME: DAILY_CLOSE
+    DOMAIN: CANDLE
+    INTERVAL: DAY
+    MEASUREMENT: Close
+
+  - NAME: MONTHLY_PIVOT_S2
+    DOMAIN: CANDLE
+    INTERVAL: DAY
+    STEPS:
+      - TYPE: PIVOT
+        LOOKBACK: 60
+        ARGS:
+          TYPE: Standard
+          WINDOW_SIZE: MONTH
+          LEVEL: S2
+
+  - NAME: WEEKLY_PIVOT_S2
+    DOMAIN: CANDLE
+    INTERVAL: DAY
+    STEPS:
+      - TYPE: PIVOT
+        LOOKBACK: 20
+        ARGS:
+          TYPE: Standard
+          WINDOW_SIZE: WEEK
+          LEVEL: S2
+
+  - NAME: OPERATING_PROFIT_MARGIN
+    DOMAIN: RATIO
+    MEASUREMENT: OperatingProfitMargin
+
+  - NAME: OPERATING_CASH_FLOW_TO_SALES_RATIO
+    DOMAIN: RATIO
+    MEASUREMENT: OperatingCashFlowSalesRatio
+
+# ------------------------------------------------------------------------------
+# SIGNALS
+# ------------------------------------------------------------------------------
+# Requires operating profit margin above 15 percent and operating cash flow to
+# sales above 10 percent. The setup tracks a monthly-S2 break and recovery.
+SIGNALS:
+  - NAME: FINANCIALS_STRONG
+    IS: OPERATING_PROFIT_MARGIN > 0.15 AND OPERATING_CASH_FLOW_TO_SALES_RATIO > 0.10
+
+  - NAME: LOW_ABOVE_MONTHLY_S2
+    IS: DAILY_LOW > MONTHLY_PIVOT_S2
+
+  - NAME: LOW_BELOW_MONTHLY_S2
+    IS: DAILY_LOW < MONTHLY_PIVOT_S2
+
+  - NAME: CLOSE_ABOVE_WEEKLY_S2
+    IS: DAILY_CLOSE > WEEKLY_PIVOT_S2
+
+# ------------------------------------------------------------------------------
+# ENTRY AND EXIT CRITERIA
+# ------------------------------------------------------------------------------
+# Entry requires financial strength, an initial daily low above monthly S2, a
+# subsequent daily low below monthly S2, and recovery above weekly S2 support.
+CRITERIA:
+  ENTER:
+    IF: FINANCIALS_STRONG AND LOW_ABOVE_MONTHLY_S2
+    NEXT:
+      - IF: LOW_BELOW_MONTHLY_S2
+        NEXT:
+          - IF: CLOSE_ABOVE_WEEKLY_S2 AND FINANCIALS_STRONG
+
+# ------------------------------------------------------------------------------
+# LEGAL AND RISK NOTICE
+# ------------------------------------------------------------------------------
+# This configuration is provided for technical and informational use only.
+# It is not investment, financial, legal, or tax advice and is not a
+# recommendation or solicitation to buy, sell, or hold any instrument.
+# Trading involves risk of loss. Margin and short selling may result in
+# losses exceeding the capital initially committed.
+# Historical, backtested, and simulated results do not guarantee future results.
+# ==============================================================================

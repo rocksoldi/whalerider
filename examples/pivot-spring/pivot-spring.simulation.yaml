@@ -1,0 +1,47 @@
+# TEMPLATE: replace the strategy-ID placeholder with the ID from your workspace.
+# ==============================================================================
+# WHALERIDER SIMULATION CONFIGURATION
+# ==============================================================================
+# Artifact Name: PIVOT_SPRING_SIMULATION
+# Purpose: Defines a historical multi-strategy simulation and account model.
+# Status: Generated configuration; validation is required before execution.
+# Website: https://whalerider.org
+# WhaleRider © 2026 RockSoldi. All rights reserved.
+# ------------------------------------------------------------------------------
+
+# Defines the unique simulation artifact name.
+NAME: PIVOT_SPRING_SIMULATION
+
+# ------------------------------------------------------------------------------
+# STRATEGY ALLOCATION
+# ------------------------------------------------------------------------------
+# Selects the deployed strategy to execute using the shared simulation account.
+# No strategy-specific gross-equity allocation cap is applied.
+STRATEGIES:
+  - STRATEGY_ID: <YOUR_STRATEGY_ID>
+
+# ------------------------------------------------------------------------------
+# ACCOUNT ASSUMPTIONS
+# ------------------------------------------------------------------------------
+# Sets the simulation account's starting cash and equity in U.S. dollar units.
+# Margin requirements and financing costs are not included because none were requested.
+INITIAL_CASH: 100000
+
+# ------------------------------------------------------------------------------
+# HISTORICAL DATE SCOPE
+# ------------------------------------------------------------------------------
+# Defines the inclusive historical evaluation period using ISO calendar dates.
+# The period runs from 2016-01-01 through 2025-12-31.
+FROM: 2016-01-01
+TO: 2025-12-31
+
+# ------------------------------------------------------------------------------
+# LEGAL AND RISK NOTICE
+# ------------------------------------------------------------------------------
+# This configuration is provided for technical and informational use only.
+# It is not investment, financial, legal, or tax advice and is not a
+# recommendation or solicitation to buy, sell, or hold any instrument.
+# Trading involves risk of loss. Margin and short selling may result in
+# losses exceeding the capital initially committed.
+# Historical, backtested, and simulated results do not guarantee future results.
+# ==============================================================================

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Workspace, account, and billing support
+    url: mailto:whalerider@rocksoldi.com
+    about: Get help with access, billing, or private account details.
+  - name: Product documentation
+    url: https://www.whalerider.org/docs
+    about: Find the connection guide, language reference, and CLI commands.

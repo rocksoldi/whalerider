@@ -1,0 +1,32 @@
+# TEMPLATE: replace both deployment-ID placeholders with IDs from your workspace.
+# ==============================================================================
+# WHALERIDER STRATEGY CONFIGURATION
+# ==============================================================================
+# Artifact Name: PIVOT_SPRING_STRATEGY
+# Purpose: Connects one deployed trade plan to one deployed risk policy.
+# Status: Generated configuration; validation is required before deployment.
+# Website: https://whalerider.org
+# WhaleRider © 2026 RockSoldi. All rights reserved.
+# ------------------------------------------------------------------------------
+
+NAME: PIVOT_SPRING_STRATEGY
+
+# ------------------------------------------------------------------------------
+# DEPLOYED ARTIFACT REFERENCES
+# ------------------------------------------------------------------------------
+# Binds the strategy to validated, deployed artifact identifiers.
+# Uses the deployed trade plan identifier supplied for this strategy.
+TRADE_PLAN_ID: <YOUR_TRADE_PLAN_ID>
+# Uses the deployed risk policy identifier supplied for this strategy.
+RISK_POLICY_ID: <YOUR_RISK_POLICY_ID>
+
+# ------------------------------------------------------------------------------
+# LEGAL AND RISK NOTICE
+# ------------------------------------------------------------------------------
+# This configuration is provided for technical and informational use only.
+# It is not investment, financial, legal, or tax advice and is not a
+# recommendation or solicitation to buy, sell, or hold any instrument.
+# Trading involves risk of loss. Margin and short selling may result in
+# losses exceeding the capital initially committed.
+# Historical, backtested, and simulated results do not guarantee future results.
+# ==============================================================================

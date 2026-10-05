@@ -1,0 +1,49 @@
+# TEMPLATE: replace the strategy-ID placeholder with the ID from your workspace.
+# ==============================================================================
+# WHALERIDER SIMULATION CONFIGURATION
+# ==============================================================================
+# Artifact Name: WEAK_IBS_SIMULATION
+# Purpose: Defines a historical multi-strategy simulation and account model.
+# Status: Generated configuration; validation is required before execution.
+# Website: https://whalerider.org
+# WhaleRider © 2026 RockSoldi. All rights reserved.
+# ------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------
+# SIMULATION IDENTITY
+# ------------------------------------------------------------------------------
+# Identifies this simulation artifact using its required stable definition name.
+NAME: WEAK_IBS_SIMULATION
+
+# ------------------------------------------------------------------------------
+# STRATEGY ALLOCATION
+# ------------------------------------------------------------------------------
+# Selects the deployed strategy for execution in the shared simulation account.
+# No strategy-specific gross-equity allocation cap is specified.
+STRATEGIES:
+  - STRATEGY_ID: <YOUR_STRATEGY_ID>
+
+# ------------------------------------------------------------------------------
+# ACCOUNT ASSUMPTIONS
+# ------------------------------------------------------------------------------
+# Sets starting cash and account equity in dollars.
+# Margin configuration is omitted, so no financing model is configured.
+INITIAL_CASH: 100000
+
+# ------------------------------------------------------------------------------
+# HISTORICAL DATE SCOPE
+# ------------------------------------------------------------------------------
+# Defines the inclusive historical evaluation period using ISO calendar dates.
+FROM: 2006-01-01
+TO: 2025-12-31
+
+# ------------------------------------------------------------------------------
+# LEGAL AND RISK NOTICE
+# ------------------------------------------------------------------------------
+# This configuration is provided for technical and informational use only.
+# It is not investment, financial, legal, or tax advice and is not a
+# recommendation or solicitation to buy, sell, or hold any instrument.
+# Trading involves risk of loss. Margin and short selling may result in
+# losses exceeding the capital initially committed.
+# Historical, backtested, and simulated results do not guarantee future results.
+# ==============================================================================
