@@ -1,6 +1,6 @@
 {
   "name": "whalerider",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Build validated trading-research definitions, run historical simulations, and explore the results through WhaleRider.",
   "author": {
     "name": "ROCKSOLDI LTD",

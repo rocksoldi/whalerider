@@ -2,7 +2,7 @@
 
 ![WhaleRider](assets/whalerider-icon.png)
 
-WhaleRider is software for user-directed research and historical simulation of systematic trading strategies. This plugin connects Claude to the WhaleRider service and teaches Claude how to use it, so you can go from an idea to a finished simulation in one conversation.
+WhaleRider is software for user-directed research and historical simulation of systematic trading strategies. This plugin connects Claude to the WhaleRider service, so you can go from an idea to a finished simulation in one conversation.
 
 ## What you can do
 
@@ -13,9 +13,7 @@ WhaleRider is software for user-directed research and historical simulation of s
 
 ## What the plugin contains
 
-- `.mcp.json` declares one remote MCP server, `https://mcp.whalerider.org`, over HTTPS. Nothing runs on your computer.
-- `skills/whalerider` guides Claude through definitions, simulation runs, reports, and charts.
-- `skills/setup` helps you connect and sign in for the first time.
+- `.mcp.json` declares one remote MCP server, `https://mcp.whalerider.org`, over HTTPS. Nothing runs on your computer. The server provides the tools for definitions, simulation runs, reports, and charts.
 
 The plugin contains no scripts, hooks, or bundled executables, and it sends data only to the WhaleRider server above.
 
