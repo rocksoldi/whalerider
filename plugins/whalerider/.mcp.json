@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "whalerider": {
+      "type": "http",
+      "url": "https://mcp.whalerider.org"
+    }
+  }
+}

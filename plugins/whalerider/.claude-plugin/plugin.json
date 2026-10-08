@@ -1,0 +1,10 @@
+{
+  "name": "whalerider",
+  "version": "1.0.0",
+  "description": "Build validated trading-research definitions, run historical simulations, and explore the results through WhaleRider.",
+  "author": { "name": "ROCKSOLDI LTD", "url": "https://www.whalerider.org" },
+  "homepage": "https://www.whalerider.org",
+  "repository": "https://github.com/rocksoldi/whalerider",
+  "license": "MIT",
+  "keywords": ["research", "simulation", "backtesting", "charts"]
+}
