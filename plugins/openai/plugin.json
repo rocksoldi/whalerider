@@ -16,7 +16,7 @@
     "com.openai": {
       "interface": {
         "displayName": "WhaleRider",
-        "shortDescription": "Trading research and simulations",
+        "shortDescription": "Trading research & simulation",
         "longDescription": "WhaleRider turns a trading idea into validated Trade Plan, Risk Policy, Strategy and Simulation definitions, runs historical simulations, and presents the results as performance summaries, trade lists, candlestick views and charts. WhaleRider is a research and historical-simulation platform. It does not place trades, connect to brokerage accounts, or move money.",
         "developerName": "ROCKSOLDI LTD",
         "category": "Finance",
@@ -78,11 +78,11 @@
             }
           ]
         },
-        "demo_recording_url": "https://www.whalerider.org/docs",
+        "demo_recording_url": "https://www.whalerider.org/assets/demo.mp4",
         "commerce": false
       },
       "publication": {
-        "countries": ["US"],
+        "countries": [],
         "release_notes": "Initial release."
       }
     }
