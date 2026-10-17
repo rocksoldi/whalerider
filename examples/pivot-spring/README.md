@@ -23,10 +23,10 @@ The risk policy caps one position at 30% of current equity, sets a minimum posit
 | --- | --- |
 | [Trade plan](pivot-spring.trade-plan.yaml) | Inspect or compile locally. |
 | [Risk policy](pivot-spring.risk-policy.yaml) | Inspect the sizing assumptions or compile locally. |
-| [Strategy](pivot-spring.strategy.yaml) | Replace both deployment-ID placeholders before compiling. |
-| [Simulation](pivot-spring.simulation.yaml) | Replace the strategy-ID placeholder; review the period and starting cash. |
+| [Strategy](pivot-spring.strategy.yaml) | Uses the exact names of the included trade plan and risk policy. |
+| [Simulation](pivot-spring.simulation.yaml) | Uses the included strategy name; review the period and starting cash. |
 
-The strategy and simulation templates use your own workspace's deployed IDs. See the [deployment walkthrough](../../docs/developer-tools.md#compile-and-deploy-in-order). The example files preserve the published rule logic; replacing IDs does not promise that a new run will reproduce historical results exactly.
+The strategy and simulation definitions use portable artifact names. Deploy their dependencies first. See the [deployment walkthrough](../../docs/developer-tools.md#compile-and-deploy-in-order). The example files preserve the published rule logic; using the same definitions does not promise that a new run will reproduce historical results exactly.
 
 ## Recorded historical result
 
@@ -73,6 +73,6 @@ Values are transcribed from the [published session](https://www.whalerider.org/s
 | Simulation definition | `6ab231873b7850e53b6732f8` |
 | Simulation run | `6ab234d13b7850e53b6732f9` |
 
-These public session identifiers document the source. Use IDs from your own workspace to compose and run the templates.
+These public session identifiers document the source. The definitions compose through portable names. Start a run using the simulation ID returned by deployment in your workspace.
 
 Historical and simulated results do not guarantee future results. This is a research example, not an investment recommendation. [Product scope](../../README.md#help-and-contact).

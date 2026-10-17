@@ -1,4 +1,3 @@
-# TEMPLATE: replace the strategy-ID placeholder with the ID from your workspace.
 # ==============================================================================
 # WHALERIDER SIMULATION CONFIGURATION
 # ==============================================================================
@@ -21,7 +20,7 @@ NAME: WEAK_IBS_SIMULATION
 # Selects the deployed strategy for execution in the shared simulation account.
 # No strategy-specific gross-equity allocation cap is specified.
 STRATEGIES:
-  - STRATEGY_ID: <YOUR_STRATEGY_ID>
+  - STRATEGY_NAME: WEAK_IBS_STRATEGY
 
 # ------------------------------------------------------------------------------
 # ACCOUNT ASSUMPTIONS

@@ -1,4 +1,3 @@
-# TEMPLATE: replace the strategy-ID placeholder with the ID from your workspace.
 # ==============================================================================
 # WHALERIDER SIMULATION CONFIGURATION
 # ==============================================================================
@@ -18,7 +17,7 @@ NAME: PIVOT_SPRING_SIMULATION
 # Selects the deployed strategy to execute using the shared simulation account.
 # No strategy-specific gross-equity allocation cap is applied.
 STRATEGIES:
-  - STRATEGY_ID: <YOUR_STRATEGY_ID>
+  - STRATEGY_NAME: PIVOT_SPRING_STRATEGY
 
 # ------------------------------------------------------------------------------
 # ACCOUNT ASSUMPTIONS

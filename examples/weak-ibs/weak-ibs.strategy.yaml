@@ -1,4 +1,3 @@
-# TEMPLATE: replace both deployment-ID placeholders with IDs from your workspace.
 # ==============================================================================
 # WHALERIDER STRATEGY CONFIGURATION
 # ==============================================================================
@@ -12,13 +11,13 @@
 # ------------------------------------------------------------------------------
 # DEPLOYED ARTIFACT REFERENCES
 # ------------------------------------------------------------------------------
-# Binds the strategy to validated, deployed artifact identifiers.
+# Binds the strategy to validated, exact artifact names within the organization.
 # Identifies this strategy artifact using the supplied stable definition name.
 NAME: WEAK_IBS_STRATEGY
 # References the supplied deployed trade plan that defines trading rules.
-TRADE_PLAN_ID: <YOUR_TRADE_PLAN_ID>
+TRADE_PLAN_NAME: WEAK_IBS_TRADE_PLAN
 # References the supplied deployed risk policy that defines risk limits.
-RISK_POLICY_ID: <YOUR_RISK_POLICY_ID>
+RISK_POLICY_NAME: WEAK_IBS_RISK_POLICY
 
 # ------------------------------------------------------------------------------
 # LEGAL AND RISK NOTICE

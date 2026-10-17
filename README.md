@@ -56,6 +56,7 @@ Then create the risk policy, strategy, and simulation, run it, and ask about the
   </picture>
 </a>
 
+
 | Real session | Research question | Explore |
 | --- | --- | --- |
 | **PIVOT_SPRING** · NASDAQ-100 · 2016–2025 | Can financial strength and a staged recovery from monthly support form a systematic rule set? | [Full conversation](https://www.whalerider.org/sessions/pivot-spring) · [Local example](examples/pivot-spring/README.md) |
@@ -73,7 +74,7 @@ These are recorded historical simulations. Results depend on the definitions, da
 | **VS Code IntelliSense** | Edit generated YAML with completion, hover documentation, and schema-aware diagnostics. |
 | **CLI and automation** | Compile definitions, deploy artifacts, start simulations, and retrieve results from scripts. |
 | **An expressive language** | Combine indicators, signals, sequential criteria, position controls, and reusable risk policies. |
-| **Multi-domain data** | Research price, financial statements, ratios, macro, insider activity, short interest, and more. |
+| **Multi-domain data** | Research price, financial statements, ratios, analyst ratings, Treasury yields, institutional ownership, macro, insider activity, and more. |
 | **Historical simulation** | Inspect performance, simulated positions, and the periods behind the headline results. |
 
 ## Connect and start building

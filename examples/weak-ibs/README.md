@@ -22,10 +22,10 @@ The published risk policy sets both position value and position-risk budgets to 
 | --- | --- |
 | [Trade plan](weak-ibs.trade-plan.yaml) | Inspect or compile locally. |
 | [Risk policy](weak-ibs.risk-policy.yaml) | Inspect the sizing assumptions or compile locally. |
-| [Strategy](weak-ibs.strategy.yaml) | Replace both deployment-ID placeholders before compiling. |
-| [Simulation](weak-ibs.simulation.yaml) | Replace the strategy-ID placeholder; review the period and starting cash. |
+| [Strategy](weak-ibs.strategy.yaml) | Uses the exact names of the included trade plan and risk policy. |
+| [Simulation](weak-ibs.simulation.yaml) | Uses the included strategy name; review the period and starting cash. |
 
-The strategy and simulation templates use your own workspace's deployed IDs. See the [deployment walkthrough](../../docs/developer-tools.md#compile-and-deploy-in-order). The example files preserve the published rule logic; replacing IDs does not promise that a new run will reproduce historical results exactly.
+The strategy and simulation definitions use portable artifact names. Deploy their dependencies first. See the [deployment walkthrough](../../docs/developer-tools.md#compile-and-deploy-in-order). The example files preserve the published rule logic; using the same definitions does not promise that a new run will reproduce historical results exactly.
 
 ## Recorded historical result
 
@@ -82,6 +82,6 @@ Values are transcribed from the [published session](https://www.whalerider.org/s
 | Simulation definition | `6aae9d3631249edb825f66ac` |
 | Simulation run | `6aae9d5431249edb825f66ad` |
 
-These public session identifiers document the source. Use IDs from your own workspace to compose and run the templates.
+These public session identifiers document the source. The definitions compose through portable names. Start a run using the simulation ID returned by deployment in your workspace.
 
 Historical and simulated results do not guarantee future results. This is a research example, not an investment recommendation. [Product scope](../../README.md#help-and-contact).

@@ -2,7 +2,7 @@
 
 [← WhaleRider](../README.md) · [Complete product reference](https://www.whalerider.org/docs)
 
-WhaleRider preserves research rules as inspectable YAML definitions. Compilation validates a document and produces a fixed `.wr` artifact. Deployment returns the identifier used to compose the next layer.
+WhaleRider preserves research rules as inspectable YAML definitions. Compilation validates a document and produces a fixed `.wr` artifact. Definitions reference dependencies by name, so the same files can be deployed across organizations without substituting deployment IDs.
 
 ```text
 Trade plan ──┐
@@ -37,9 +37,9 @@ Position-risk limits are sizing assumptions, not guaranteed-loss limits. Simulat
 
 ## Strategy
 
-A strategy binds `TRADE_PLAN_ID` and `RISK_POLICY_ID` to the identifiers returned by deploying those artifacts in your workspace. Names alone do not establish the link.
+A strategy binds `TRADE_PLAN_NAME` and `RISK_POLICY_NAME` to the exact `NAME` values of those artifacts. A simulation references strategies through `STRATEGIES[].STRATEGY_NAME`. Names are case-sensitive, unique per artifact type and organization, and resolve only within the destination organization.
 
-The example strategy files contain explicit placeholders. Replace them with your own deployment IDs before compiling. Historical IDs from the website's sessions are provenance, not reusable references for another workspace.
+The example definitions contain portable name references and need no ID substitution. Compile files independently, then deploy trade plans and risk policies, strategies, and simulations in that order. Missing or ambiguous references and duplicate strategy allocations are rejected. Referenced artifacts cannot be renamed or deleted until dependent definitions are updated or removed. Deployment IDs still identify persisted definitions for management operations and runtime records.
 
 ## Simulation and run
 

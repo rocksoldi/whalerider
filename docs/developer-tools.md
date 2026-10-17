@@ -52,7 +52,7 @@ A profile is required for deployment, running simulations, and retrieving worksp
 
 ## Compile and deploy in order
 
-Every angle-bracket value below is a placeholder. Replace it before executing the command or compiling a template. The compile result reports the actual output path; use that path for deployment.
+Every angle-bracket value in the commands below is a placeholder. Replace it before executing the command. The definition files already contain portable name references. The compile result reports the actual output path; use that path for deployment.
 
 ### 1. Deploy the trade plan and risk policy
 
@@ -63,22 +63,22 @@ wr deploy --file <TRADE_PLAN_ARTIFACT_PATH>
 wr deploy --file <RISK_POLICY_ARTIFACT_PATH>
 ```
 
-Record each returned `DeploymentId`.
+Deployment returns a `DeploymentId` for management operations. The strategy references these artifacts by their names.
 
 ### 2. Link and deploy the strategy
 
-In [weak-ibs.strategy.yaml](../examples/weak-ibs/weak-ibs.strategy.yaml), replace `<YOUR_TRADE_PLAN_ID>` and `<YOUR_RISK_POLICY_ID>` with the corresponding IDs from step 1. Then:
+The [strategy definition](../examples/weak-ibs/weak-ibs.strategy.yaml) already references `WEAK_IBS_TRADE_PLAN` and `WEAK_IBS_RISK_POLICY` by name. Deploy it after step 1:
 
 ```text
 wr compile --file examples/weak-ibs/weak-ibs.strategy.yaml
 wr deploy --file <STRATEGY_ARTIFACT_PATH>
 ```
 
-Record the strategy's `DeploymentId`.
+The strategy's `DeploymentId` identifies the persisted definition for management operations; dependent YAML uses its name.
 
 ### 3. Link and deploy the simulation
 
-In [weak-ibs.simulation.yaml](../examples/weak-ibs/weak-ibs.simulation.yaml), replace `<YOUR_STRATEGY_ID>` with the ID from step 2. Review the initial cash and date range, then:
+The [simulation definition](../examples/weak-ibs/weak-ibs.simulation.yaml) already references `WEAK_IBS_STRATEGY` by name. Review the initial cash and date range, then:
 
 ```text
 wr compile --file examples/weak-ibs/weak-ibs.simulation.yaml
