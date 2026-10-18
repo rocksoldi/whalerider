@@ -8,24 +8,27 @@
 # WhaleRider © 2026 RockSoldi. All rights reserved.
 # ------------------------------------------------------------------------------
 
-NAME: PIVOT_SPRING_STRATEGY
+# Identifies the strategy using the exact name supplied by the user.
+NAME: "PIVOT_SPRING_STRATEGY"
 
 # ------------------------------------------------------------------------------
 # DEPLOYED ARTIFACT REFERENCES
 # ------------------------------------------------------------------------------
-# Binds the strategy to validated, exact artifact names within the organization.
-# Uses the exact trade plan name supplied for this strategy.
-TRADE_PLAN_NAME: PIVOT_SPRING_TRADE_PLAN
-# Uses the exact risk policy name supplied for this strategy.
-RISK_POLICY_NAME: PIVOT_SPRING_RISK_POLICY
+# Binds the strategy to exact artifact names supplied by the user.
+# Both dependencies must be deployed in this organization before this strategy.
+# Reference existence and artifact types require validation before deployment.
+
+# References the user-specified trade plan by its exact, case-sensitive name.
+# Indicators, signals, entry, exit, and trade-management rules remain there.
+TRADE_PLAN_NAME: "PIVOT_SPRING_TRADE_PLAN"
+
+# References the user-specified risk policy by its exact, case-sensitive name.
+# Position-value and position-risk limits remain in that policy.
+RISK_POLICY_NAME: "PIVOT_SPRING_RISK_POLICY"
 
 # ------------------------------------------------------------------------------
-# LEGAL AND RISK NOTICE
+# TERMS OF SERVICE
 # ------------------------------------------------------------------------------
-# This configuration is provided for technical and informational use only.
-# It is not investment, financial, legal, or tax advice and is not a
-# recommendation or solicitation to buy, sell, or hold any instrument.
-# Trading involves risk of loss. Margin and short selling may result in
-# losses exceeding the capital initially committed.
-# Historical, backtested, and simulated results do not guarantee future results.
+# For technical and informational use only. Not investment advice.
+# Terms and risk disclosures: https://whalerider.org/terms
 # ==============================================================================

@@ -10,6 +10,8 @@
 - `social-preview.svg`: editable source for the 1280 × 640 repository social-preview image.
 - `social-preview.png`: upload this PNG in GitHub's repository settings.
 
+Regenerate the four Pivot Spring SVGs with `node scripts/render-pivot-spring.mjs`. The generator checks the annual CSV against the [recorded result snapshot](../examples/pivot-spring/recorded-results.json), including the run ID and partial-year marker.
+
 The README uses `<picture>` to select light or dark artwork. The text and tables around the images preserve the main message and results for readers using assistive technology or viewing the Markdown without images.
 
 Brand assets remain the property of ROCKSOLDI LTD.

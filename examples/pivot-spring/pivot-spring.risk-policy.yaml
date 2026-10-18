@@ -8,29 +8,36 @@
 # WhaleRider © 2026 RockSoldi. All rights reserved.
 # ------------------------------------------------------------------------------
 
-NAME: PIVOT_SPRING_RISK_POLICY
+# Defines the reusable position-sizing policy.
+NAME: "PIVOT_SPRING_RISK_POLICY"
 
 # ------------------------------------------------------------------------------
 # POSITION LIMITS
 # ------------------------------------------------------------------------------
 # Defines per-position value and risk limits as percentages of account equity.
-# Caps each newly sized position at 30% of current account equity.
-# This per-position limit remains separate from any strategy-level allocation cap.
+# All percentages are positive integers based on current account equity.
+# Actual sizing also respects available buying power and the strategy's
+# remaining aggregate allocation capacity.
+
+# Caps the market value of each new position at 30% of account equity.
+# This cap is separate from the strategy's aggregate exposure limit.
 MAX_POSITION_VALUE_PCT: 30
-# Rejects a newly sized position when its value is below 1% of current equity.
+
+# Rejects an order if its calculated position value is below 1% of equity.
 MIN_POSITION_VALUE_PCT: 1
-# Targets a maximum loss budget of 3% of current account equity per position.
-# With an ATR stop, this limit can constrain position size; otherwise it derives
-# a target stop-loss price after value-based sizing.
+
+# Targets a maximum loss budget of 3% of account equity per position.
+# With a positive trade-plan STOP_LOSS_ATR and current ATR, this budget
+# limits position size using the stop distance and estimated commission.
+# Without STOP_LOSS_ATR, value-based sizing occurs first, and the risk
+# budget is used to derive a stop-loss price.
+# Stops are checked at the trade plan's evaluation interval; gaps, slippage,
+# execution delays, and commissions can cause losses to exceed this target.
 MAX_POSITION_RISK_PCT: 3
 
 # ------------------------------------------------------------------------------
-# LEGAL AND RISK NOTICE
+# TERMS OF SERVICE
 # ------------------------------------------------------------------------------
-# This configuration is provided for technical and informational use only.
-# It is not investment, financial, legal, or tax advice and is not a
-# recommendation or solicitation to buy, sell, or hold any instrument.
-# Trading involves risk of loss. Margin and short selling may result in
-# losses exceeding the capital initially committed.
-# Historical, backtested, and simulated results do not guarantee future results.
+# For technical and informational use only. Not investment advice.
+# Terms and risk disclosures: https://whalerider.org/terms
 # ==============================================================================

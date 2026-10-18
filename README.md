@@ -52,14 +52,15 @@ Then create the risk policy, strategy, and simulation, run it, and ask about the
     <source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="assets/pivot-spring-mobile-light.svg" />
     <source media="(prefers-color-scheme: dark)" srcset="assets/pivot-spring-dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="assets/pivot-spring-light.svg" />
-    <img src="assets/pivot-spring-light.svg" width="1200" alt="PIVOT_SPRING historical simulation, 2016–2025: total return 764.08%, maximum drawdown 28.03%, 944 completed trades. Annual returns include losses in 2018 and 2022. Open the full session for assumptions and analysis." />
+    <img src="assets/pivot-spring-light.svg" width="1200" alt="PIVOT_SPRING realized historical simulation, January 2016–June 2026: total return 2,239.39%, CAGR 35.03%, maximum drawdown 23.91%, and 1,135 completed trades. The 2026 annual bar is a partial-year result through June 30. Open the full session for assumptions and analysis." />
   </picture>
 </a>
 
+The recorded Pivot Spring run starts with **$100,000** and ends at **$2,339,391.78** in realized account value: **+2,239.39% total return**, **35.03% CAGR**, **23.91% maximum drawdown**, and **1,135 completed trades** from January 2016 through June 2026. Results exclude open-position valuations; 2026 annual returns cover only the first half of the year.
 
 | Real session | Research question | Explore |
 | --- | --- | --- |
-| **PIVOT_SPRING** · NASDAQ-100 · 2016–2025 | Can financial strength and a staged recovery from monthly support form a systematic rule set? | [Full conversation](https://www.whalerider.org/sessions/pivot-spring) · [Local example](examples/pivot-spring/README.md) |
+| **PIVOT_SPRING** · NASDAQ-100 · Jan 2016–Jun 2026 | Can financial strength and a staged recovery from monthly support form a systematic rule set? | [Full conversation](https://www.whalerider.org/sessions/pivot-spring) · [Local example](examples/pivot-spring/README.md) |
 | **WEAK_IBS** · SPY · 2006–2025 | What happens when a single-ticker rule enters at low internal bar strength and exits at high internal bar strength? | [Full conversation](https://www.whalerider.org/sessions/weak-ibs) · [Local example](examples/weak-ibs/README.md) |
 
 These are recorded historical simulations. Results depend on the definitions, data, period, and modeling assumptions; they do not guarantee future results. [Session details and source data](docs/real-sessions.md).

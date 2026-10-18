@@ -12,8 +12,8 @@ The hypothesis combines financial strength with a staged break and recovery arou
 2. Require operating profit margin above 15% and operating cash flow to sales above 10%.
 3. Start a setup when the daily low is above the standard monthly S2 pivot.
 4. Wait for the daily low to move below monthly S2.
-5. Enter after the daily close recovers above weekly S2 while the financial conditions remain true.
-6. Use daily 14-period ATR controls: a 3 ATR stop and a 1.5 ATR take-profit distance. Close a remaining position after 30 calendar days.
+5. Enter after the daily close recovers above weekly S2 when both financial conditions qualify. Monthly and weekly pivots refresh at their respective calendar boundaries.
+6. Use daily 14-period ATR controls: a 1.5 ATR stop, a 1.5 ATR take-profit distance, and maximum adverse entry slippage of 0.25 ATR. Close a remaining position after 30 calendar days.
 
 The risk policy caps one position at 30% of current equity, sets a minimum position value of 1%, and uses a 3% position-risk budget. The published simulation starts with $100,000 and omits margin and financing configuration.
 
@@ -33,18 +33,21 @@ The strategy and simulation definitions use portable artifact names. Deploy thei
 | Metric | Published value |
 | --- | --- |
 | Universe | Point-in-time NASDAQ-100 common stocks |
-| Period | 2016-01-01 through 2025-12-31 |
+| Period | 2016-01-01 through 2026-06-30, inclusive |
 | Starting cash | $100,000 |
-| Ending equity | $864,077.73 |
-| Total return | 764.08% |
-| CAGR | 24.07% |
-| Maximum drawdown | 28.03% |
-| Completed trades | 944 |
-| Sharpe ratio | 1.20 |
-| Sortino ratio | 1.81 |
-| Profit factor | 1.454 |
+| Ending realized account value | $2,339,391.78 |
+| Total return | 2,239.39% |
+| CAGR | 35.03% |
+| Maximum drawdown | 23.91% |
+| Completed trades | 1,135 |
+| Sharpe ratio | 1.46 |
+| Sortino ratio | 2.54 |
+| Profit factor | 1.53 |
+| Win rate | 59.03% |
+| Exposure | 89.24% |
+| Exposure-adjusted CAGR | 39.25% |
 
-Values are transcribed from the [published session](https://www.whalerider.org/sessions/pivot-spring), checked against the website source on October 5, 2026. They describe that recorded run, rather than a newly executed simulation.
+Values are transcribed from the [published session](https://www.whalerider.org/sessions/pivot-spring), recorded October 15, 2026 and checked against the live website on October 18, 2026. The [source snapshot](recorded-results.json) retains the published summary and annual-return payloads. They describe that recorded run, rather than a newly executed simulation. Account value and returns reflect realized results and exclude open-position valuations.
 
 ## Annual returns
 
@@ -52,26 +55,29 @@ Values are transcribed from the [published session](https://www.whalerider.org/s
 
 | Year | Return |
 | --- | --- |
-| 2016 | +23.35% |
-| 2017 | +8.89% |
-| 2018 | -17.02% |
-| 2019 | +38.04% |
-| 2020 | +87.57% |
-| 2021 | +60.54% |
-| 2022 | -10.47% |
-| 2023 | +66.87% |
-| 2024 | +11.98% |
-| 2025 | +11.47% |
+| 2016 | +45.82% |
+| 2017 | +13.61% |
+| 2018 | +3.48% |
+| 2019 | +35.21% |
+| 2020 | +69.95% |
+| 2021 | +50.46% |
+| 2022 | +27.69% |
+| 2023 | +70.59% |
+| 2024 | +2.84% |
+| 2025 | +71.95% |
+| 2026* | +2.47% |
+
+*2026 is a partial year through June 30. July–December are outside the simulation period.
 
 ## Provenance
 
 | Recorded artifact | ID |
 | --- | --- |
-| Trade plan | `6ab230c83b7850e53b6732f5` |
-| Risk policy | `6ab231393b7850e53b6732f6` |
-| Strategy | `6ab231573b7850e53b6732f7` |
-| Simulation definition | `6ab231873b7850e53b6732f8` |
-| Simulation run | `6ab234d13b7850e53b6732f9` |
+| Trade plan | `6ad120896912b9e82ba86c11` |
+| Risk policy | `6ad120ac6912b9e82ba86c12` |
+| Strategy | `6ad120c86912b9e82ba86c13` |
+| Simulation definition | `6ad120eb6912b9e82ba86c14` |
+| Simulation run | `6ad121036912b9e82ba86c15` |
 
 These public session identifiers document the source. The definitions compose through portable names. Start a run using the simulation ID returned by deployment in your workspace.
 

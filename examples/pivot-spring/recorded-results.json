@@ -1,0 +1,121 @@
+{
+  "checkedAt": "2026-10-18",
+  "summarySource": "https://whalerider.org/sessions/charts/pivot-summary.json",
+  "annualSource": "https://whalerider.org/sessions/charts/pivot-annual.json",
+  "summary": {
+    "version": 1,
+    "chart": "summary",
+    "theme": "WhaleRider",
+    "appearance": "auto",
+    "title": "Simulation Summary",
+    "metadata": {
+      "run": "6ad121036912b9e82ba86c15",
+      "name": "PIVOT_SPRING_SIMULATION",
+      "from": "2016-01-01T00:00:00.0000000Z",
+      "to": "2026-07-01T00:00:00.0000000Z",
+      "initialCash": 100000,
+      "currency": null,
+      "currencySymbol": null
+    },
+    "notes": [
+      "Cards use the authoritative simulation summary. Ending account value and returns reflect realized results; open-position valuations are excluded. Drawdown, Sharpe, and Sortino retain the reporting service's definitions. A profit factor of 100 can be the report's no-loss sentinel, not a measured 100\u00d7 ratio."
+    ],
+    "summary": {
+      "from": "2016-01-01T00:00:00Z",
+      "to": "2026-07-01T00:00:00Z",
+      "initialCashValue": 100000,
+      "endingEquity": 2339391.78,
+      "totalReturnPercent": 2239.39,
+      "cagrPercent": 35.03,
+      "exposureAdjustedCagrPercent": 39.25,
+      "exposurePercent": 89.24,
+      "winRatePercent": 59.03,
+      "profitFactor": 1.526370873897929,
+      "maxDrawdownPercent": 23.91,
+      "completedTrades": 1135,
+      "sharpeRatio": 1.46,
+      "sortinoRatio": 2.54
+    }
+  },
+  "annual": {
+    "version": 1,
+    "chart": "annual",
+    "theme": "WhaleRider",
+    "appearance": "auto",
+    "title": "Annual Realized Returns",
+    "metadata": {
+      "run": "6ad121036912b9e82ba86c15",
+      "name": "PIVOT_SPRING_SIMULATION",
+      "from": "2016-01-01T00:00:00.0000000Z",
+      "to": "2026-07-01T00:00:00.0000000Z",
+      "initialCash": 100000,
+      "currency": null,
+      "currencySymbol": null
+    },
+    "notes": [
+      "Only periods overlapping the simulation date range are included. The selected metric uses the raw reported period value, without reaggregation. Missing periods are not zero; partial periods are marked. Year values come from YEARLY reports. Heatmap averages are descriptive arithmetic means. Colors indicate numeric sign, not whether a metric is desirable."
+    ],
+    "metric": {
+      "key": "realizedReturnPercent",
+      "label": "Realized Return",
+      "format": "percent"
+    },
+    "series": {
+      "year": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "value": [
+        45.82,
+        13.61,
+        3.48,
+        35.21,
+        69.95,
+        50.46,
+        27.69,
+        70.59,
+        2.84,
+        71.95,
+        2.47
+      ],
+      "profit": [
+        45819.77,
+        19842.51,
+        5761.39,
+        60355.14,
+        162139.62,
+        198762.31,
+        164113.66,
+        534227.24,
+        36675.4,
+        955220.76,
+        56473.98
+      ],
+      "trades": [
+        93,
+        58,
+        113,
+        85,
+        115,
+        87,
+        149,
+        119,
+        115,
+        127,
+        74
+      ],
+      "partial": [
+        10
+      ]
+    }
+  }
+}
