@@ -16,8 +16,11 @@ Both packages point at the same server, `https://mcp.whalerider.org`, and contai
 Copies of the shared files live inside each package. When `shared/` changes, copy it over:
 
 - `shared/icon.png` to `claude/.claude-plugin/icon.png`, `claude/assets/whalerider-icon.png`, `openai/assets/icon.png` and `openai/assets/logo.png`
-- `shared/icon.svg` to `claude/assets/whalerider-icon.svg`
 - `shared/LICENSE` to `claude/LICENSE`
+
+Keep the editable SVG icon in `shared/` only. The Claude directory rejects SVG files in
+packages from organizations that Anthropic has not marked Verified; use PNG icons in
+`claude/`.
 
 ## Packaging the OpenAI plugin
 
